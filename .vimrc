@@ -1,7 +1,7 @@
+set nocompatible
 set langmenu=en_US
 let $LANG='en_US'
 set encoding=utf-8
-set nocompatible
 
 "{{{ Display settings:
 set guifont=Source\ Code\ Pro:h12
@@ -12,6 +12,9 @@ syntax enable
 set background=dark
 let g:solarized_menu=0
 colorscheme solarized
+set laststatus=2
+set wildmenu
+set ruler
 "}}}
 
 "{{{ General settings:
@@ -27,6 +30,8 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+"folding"
+set fdm=syntax
 "moving"
 set whichwrap+=<,>,[,]
 set backspace=indent,eol,start
@@ -41,15 +46,13 @@ inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
-inoremap {<CR> {<CR>;<CR>}<up><Esc>$xa
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<Esc>O
 "}}}
 
-"{{{ Useful but unused by me
-"set ruler
+"{{{ Useful but unused
 "set tm=500
 "set history=1000
 "set spelllang=en_US
 "set magic
-"set laststatus=2
-"set wildmenu
 "}}}
