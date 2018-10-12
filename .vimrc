@@ -1,58 +1,72 @@
 set nocompatible
+set encoding=utf-8
 set langmenu=en_US
 let $LANG='en_US'
-set encoding=utf-8
 
-"{{{ Display settings:
-set guifont=Source\ Code\ Pro:h12
-set cursorline
+" Display: {{{
 set number
-set guioptions-=T
+set ruler
+set wildmenu
+set laststatus=2
 syntax enable
 set background=dark
-let g:solarized_menu=0
-colorscheme solarized
-set laststatus=2
-set wildmenu
-set ruler
-"}}}
+" }}}
 
-"{{{ General settings:
-"general"
+" General: {{{
+" general "
 filetype plugin indent on
 set autoread
-"searching"
+set mouse=a
+set nrformats-=octal
+" searching "
 set hlsearch
 set incsearch
-"tabs and indent"
+set ignorecase
+" tabs and indent "
 set autoindent
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-"folding"
-set fdm=syntax
-"moving"
+set smarttab
+set softtabstop=4
+" folding "
+set foldmethod=syntax
+" moving "
 set whichwrap+=<,>,[,]
 set backspace=indent,eol,start
-"errors"
+" errors "
 set noerrorbells
 set novisualbell
-set t_vb=
-"}}}
+" }}}
 
-"{{{ Keymaps:
+" Keymaps: {{{
+" general "
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
+" brackets completion "
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<Esc>O
-"}}}
+" }}}
 
-"{{{ Useful but unused
-"set tm=500
-"set history=1000
-"set spelllang=en_US
-"set magic
-"}}}
+" Autocmds: {{{
+" filetype "
+autocmd FileType c,cpp      nmap <buffer> <F5> :make<CR>
+autocmd FileType c,cpp      nmap <buffer> <F6> :!gcc % -O2 -s<CR>
+autocmd FileType h,hpp,make nmap <buffer> <F5> :make<CR>
+autocmd FileType python     nmap <buffer> <F5> :!python %<CR>
+autocmd FileType r          nmap <buffer> <F5> :!rscript %<CR>
+autocmd FileType make,tex   setlocal noexpandtab
+" }}}
+
+" Completion: {{{
+set completeopt+=menuone,noinsert
+set shortmess+=c
+set belloff+=ctrlg
+" MUcomplete " Uncomment below if using MUcomplete
+“ let g:mucomplete#enable_auto_at_startup=1
+" }}}
