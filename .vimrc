@@ -68,5 +68,5 @@ set completeopt+=menuone,noinsert
 set shortmess+=c
 set belloff+=ctrlg
 " MUcomplete " Uncomment below if using MUcomplete
-“ let g:mucomplete#enable_auto_at_startup=1
+" let g:mucomplete#enable_auto_at_startup=1
 " }}}
